@@ -1,9 +1,7 @@
 const Joi = require('joi');
+const { DEFAULT_PAGE, DEFAULT_SKIP, DEFAULT_LIMIT } = require('./demo.constants');
 
 const integerSchema = Joi.number().integer();
-const DEFAULT_PAGE = 1;
-const DEFAULT_SKIP = 0;
-const DEFAULT_LIMIT = 10;
 
 class DemoValidation {
 
