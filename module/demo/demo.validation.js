@@ -1,12 +1,27 @@
 const Joi = require('joi');
 
+const integerSchema = Joi.number().integer();
+const DEFAULT_PAGE = 1;
+const DEFAULT_SKIP = 0;
+const DEFAULT_LIMIT = 10;
+
 class DemoValidation {
 
     getValidation(params) {
+        /**
+         * @typedef {Object} ValidationParams
+         * @property {number} page
+         * @property {number} skip
+         * @property {number} limit
+         */
+
+        /**
+         * @type {ValidationParams}
+         */
         const schema = Joi.object({
-            page: Joi.number().integer().default(1),
-            skip: Joi.number().integer().default(0),
-            limit: Joi.number().integer().default(10)
+            page: integerSchema.default(DEFAULT_PAGE),
+            skip: integerSchema.default(DEFAULT_SKIP),
+            limit: integerSchema.default(DEFAULT_LIMIT)
         });
 
         return schema.validate(params);
