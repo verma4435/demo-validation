@@ -7,10 +7,7 @@ const { PORT } = process.env;
 
 const app = express();
 
-
 app.use('/', new MainRoutes().getRoutes());
-
-
 app.use(validationErrorHandler);
 
-app.listen(PORT, () => console.log(`server is listing at ${PORT}`));
+app.listen(PORT, () => console.log(`server is listening at ${PORT}`));
